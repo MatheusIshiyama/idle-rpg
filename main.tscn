@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://lxac3j1rh3mo"]
+[gd_scene load_steps=4 format=3 uid="uid://lxac3j1rh3mo"]
 
+[ext_resource type="PackedScene" uid="uid://bygsw7771r1oo" path="res://Entities/Maps/taiga.tscn" id="1_vb338"]
 [ext_resource type="PackedScene" uid="uid://bshjtoqrr783e" path="res://Entities/Character/character.tscn" id="1_x68mf"]
+[ext_resource type="PackedScene" uid="uid://cxyknjkqhl2h2" path="res://Entities/Monsters/catoring.tscn" id="2_n3env"]
 
 [node name="Main" type="Node2D"]
 
+[node name="Map" parent="." instance=ExtResource("1_vb338")]
+position = Vector2(1, 3)
+
 [node name="Character" parent="." instance=ExtResource("1_x68mf")]
 position = Vector2(145, 188)
+
+[node name="Catoring" parent="." instance=ExtResource("2_n3env")]
+position = Vector2(250, 140)

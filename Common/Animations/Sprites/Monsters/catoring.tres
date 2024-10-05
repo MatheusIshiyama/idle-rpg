@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://dx01mpxasru3q"]
+
+[ext_resource type="Texture2D" uid="uid://gioctn6mgxk7" path="res://Assets/Sprites/Monsters/Catoring/catoring.png" id="1_ovb2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7ni7"]
+atlas = ExtResource("1_ovb2x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miu1x"]
+atlas = ExtResource("1_ovb2x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pcaf"]
+atlas = ExtResource("1_ovb2x")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbqgk"]
+atlas = ExtResource("1_ovb2x")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts7t5"]
+atlas = ExtResource("1_ovb2x")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvsai"]
+atlas = ExtResource("1_ovb2x")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqtaq"]
+atlas = ExtResource("1_ovb2x")
+region = Rect2(192, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7ni7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miu1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pcaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbqgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts7t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvsai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqtaq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]

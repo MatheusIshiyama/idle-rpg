@@ -7,7 +7,10 @@
 radius = 6.0
 height = 22.0
 
-[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+safe_margin = 0.5
 script = ExtResource("1_s726v")
 sprite = NodePath("Sprite")
 
@@ -15,7 +18,7 @@ sprite = NodePath("Sprite")
 sprite_frames = ExtResource("2_c5yhx")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.387852
+frame_progress = 0.821203
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
