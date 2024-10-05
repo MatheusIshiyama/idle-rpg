@@ -7,19 +7,27 @@
 radius = 6.0
 height = 22.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "bullet_node", "bullet_marker")]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 safe_margin = 0.5
 script = ExtResource("1_s726v")
 sprite = NodePath("Sprite")
+bullet_node = NodePath("BulletNode")
+bullet_marker = NodePath("BulletNode/BulletMarker")
+base_attack_range = 200.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_c5yhx")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.821203
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_7gj6r")
+
+[node name="BulletNode" type="Node2D" parent="."]
+position = Vector2(0, 4)
+
+[node name="BulletMarker" type="Marker2D" parent="BulletNode"]
+position = Vector2(16, 0)

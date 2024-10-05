@@ -14,3 +14,18 @@ position = Vector2(145, 188)
 
 [node name="Catoring" parent="." instance=ExtResource("2_n3env")]
 position = Vector2(250, 140)
+
+[node name="Catoring2" parent="." instance=ExtResource("2_n3env")]
+position = Vector2(186, 421)
+
+[node name="Catoring3" parent="." instance=ExtResource("2_n3env")]
+position = Vector2(242, 282)
+
+[node name="Catoring4" parent="." instance=ExtResource("2_n3env")]
+position = Vector2(80, 307)
+
+[node name="Catoring5" parent="." instance=ExtResource("2_n3env")]
+position = Vector2(278, 412)
+
+[node name="Catoring6" parent="." instance=ExtResource("2_n3env")]
+position = Vector2(71, 464)

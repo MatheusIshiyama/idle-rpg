@@ -14,6 +14,7 @@ var systems: Dictionary = {
 }
 
 @export var sprite: AnimatedSprite2D
+@export var hurtbox: Area2D
 
 ### ! Monster Info
 
@@ -62,7 +63,19 @@ func _ready() -> void:
 	move_behavior.monster = self
 	target_system.monster = self
 
+	_update_stats()
 	_load_scripts()
+
+	hurtbox.area_entered.connect(_on_hurtbox_area_entered)
+
+func _update_stats():
+	max_hp = base_max_hp
+	current_hp = max_hp
+	atk = base_atk
+	def = base_def
+	attack_range = base_attack_range
+	attack_speed = base_attack_speed
+	move_speed = base_move_speed
 
 func _load_scripts() -> void:
 	move_behavior._ready()
@@ -74,3 +87,15 @@ func _process(delta: float) -> void:
 		behaviors.move.move_to_target(delta)
 	else:
 		systems.target_system.find_target()
+
+func _on_hurtbox_area_entered(hitbox: Area2D) -> void:
+	var attack = hitbox.get_parent()
+
+	var damage: int = attack.damage
+	var is_critical: bool = attack.is_critical
+
+	current_hp -= damage
+
+	if current_hp <= 0 && self is Monster:
+		on_death.emit()
+		queue_free()

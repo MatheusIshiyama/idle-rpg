@@ -33,7 +33,7 @@ func move_to_target(delta: float) -> void:
 	direction *= delta * monster.move_speed
 	direction.normalized()
 
-	monster.position += direction
+	monster.move_and_collide(direction)
 
 func rotate_to_target() -> void:
 	if monster.target_system.target:

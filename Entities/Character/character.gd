@@ -3,14 +3,20 @@ class_name Character extends CharacterBody2D
 signal on_death
 
 @export var sprite: AnimatedSprite2D
+@export var bullet_node: Node2D
+@export var bullet_marker: Marker2D
 
 ### ? Scripts
 
+var attack_behavior: CharacterAttack = CharacterAttack.new()
 var move_behavior: CharacterMove = CharacterMove.new()
 var target_system: CharacterTargetSystem = CharacterTargetSystem.new()
 
+var basic_attack: CharacterBasicAttack = CharacterBasicAttack.new()
+
 var behaviors: Dictionary = {
 	"character": self,
+	"attack": attack_behavior,
 	"move": move_behavior
 }
 
@@ -58,14 +64,19 @@ var critical_damage: float = 150.0
 ### !
 
 func _ready() -> void:
+	attack_behavior.character = self
 	move_behavior.character = self
 	target_system.character = self
 
-	move_behavior._ready()
+	basic_attack.character = self
+
 	_start_scripts()
 
 func _start_scripts() -> void:
+	attack_behavior._ready()
 	move_behavior._ready()
+	
+	basic_attack._ready()
 
 	call_deferred("add_child", systems.target_system)
 
@@ -79,7 +90,12 @@ func _handle_idle_behavior(delta: float) -> void:
 	if systems.target_system.target:
 		behaviors.move.rotate_to_target()
 
-		behaviors.move.move_to_target(delta)
+		var able_to_attack: bool = behaviors.attack.monster_in_attack_range()
+		if able_to_attack:
+			if sprite.animation != 'attack':
+				sprite.play("attack")
+		else:
+			behaviors.move.move_to_target(delta)
 
 	elif !systems.target_system.searching_target:
 		systems.target_system.find_target()
