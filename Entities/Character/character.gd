@@ -31,3 +31,5 @@ func _start_scripts() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("movement"):
 		behaviors.move.handle_movement(delta)
+	else:
+		sprite.play("idle")

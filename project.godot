@@ -29,6 +29,8 @@ project/assembly_name="hunter-idle-rpg"
 [file_customization]
 
 folder_colors={
+"res://Assets/": "yellow",
+"res://Common/": "green",
 "res://Entities/": "red"
 }
 

@@ -7,6 +7,8 @@ func _ready() -> void:
 	sprite = character.sprite
 
 func handle_movement(delta: float) -> void:
+	sprite.play("run")
+
 	var direction: Vector2 = Vector2.ZERO
 
 	if Input.is_action_pressed("move_up"):
@@ -17,9 +19,11 @@ func handle_movement(delta: float) -> void:
 
 	if Input.is_action_pressed("move_left"):
 		direction.x -= 1
+		sprite.flip_h = true
 
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
+		sprite.flip_h = false
 
 	direction *= delta * character.move_speed
 	direction.normalized()

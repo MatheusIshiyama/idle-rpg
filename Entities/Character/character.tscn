@@ -1,30 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bshjtoqrr783e"]
+[gd_scene load_steps=4 format=3 uid="uid://bshjtoqrr783e"]
 
-[ext_resource type="Texture2D" uid="uid://ubyxpbuu7a3w" path="res://icon.svg" id="1_m6th3"]
 [ext_resource type="Script" path="res://Entities/Character/character.gd" id="1_s726v"]
+[ext_resource type="SpriteFrames" uid="uid://b5fb2fciujjr6" path="res://Common/Animations/Sprites/character.tres" id="2_c5yhx"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_en1bx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_m6th3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjbwt"]
-size = Vector2(65, 64)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gj6r"]
+radius = 6.0
+height = 22.0
 
 [node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_s726v")
 sprite = NodePath("Sprite")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_en1bx")
+sprite_frames = ExtResource("2_c5yhx")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.387852
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_tjbwt")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_7gj6r")
