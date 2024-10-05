@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxyknjkqhl2h2"]
+[gd_scene load_steps=4 format=3 uid="uid://cxyknjkqhl2h2"]
 
+[ext_resource type="Script" path="res://Entities/Monsters/_monster/monster.gd" id="1_xjpfm"]
 [ext_resource type="SpriteFrames" uid="uid://dx01mpxasru3q" path="res://Common/Animations/Sprites/Monsters/catoring.tres" id="2_1cf0d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_etgin"]
 radius = 8.0
 height = 26.0
 
-[node name="Catoring" type="CharacterBody2D"]
+[node name="Catoring" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 scale = Vector2(0.5, 0.5)
+script = ExtResource("1_xjpfm")
+sprite = NodePath("Sprite")
+monster_name = "Catoring"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_1cf0d")
